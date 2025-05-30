@@ -17,7 +17,7 @@ param parlocation = 'eastus'
 param parrepositoryUrl = 'https://github.com/Pradeep-Prabakaran/Pradeep-Resume.git'
 
 @description('Branch name for the repository')
-param parrepositoryBranch = 'main'
+param parrepositoryBranch = 'dev'
 
 @description('GitHub or DevOps provider')
 @allowed(['GitHub', 'DevOps'])
