@@ -33,4 +33,4 @@ param parcosmosDbAccountName = '${parprojectName}-${parenvironment}-cosmosdb'
 param parcosmosContainername = 'visitorscounter'
 
 @description('Custom domain name for the Front Door')
-param parcustomDomainName = 'www.pradeepprabakaran.com'
+param parcustomDomainName = 'www.pradeepprabakaran.me'
