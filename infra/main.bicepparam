@@ -11,7 +11,7 @@ param parprojectName = 'myportfolio'
 param parstaticWebAppName = '${parprojectName}-${parenvironment}-swa'
 
 @description('Location for all resources')
-param parlocation = 'eastus'
+param parlocation = 'east asia'
 
 @description('Repository URL for the Static Web App')
 param parrepositoryUrl = 'https://github.com/Pradeep-Prabakaran/Pradeep-Resume.git'
