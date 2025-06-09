@@ -21,13 +21,22 @@ param parrepositoryBranch string = 'main'
 @allowed(['GitHub', 'DevOps'])
 param parrepositoryProvider string = 'DevOps'
 
+@description('User-assigned managed identity resource ID')
+param userAssignedIdentityId string
+
 // Create Static Web App
 resource resstaticWebApp 'Microsoft.Web/staticSites@2023-01-01' = {
   name: parstaticWebAppName
   location: parlocation
   sku: {
-    name: 'Free'
-    tier: 'Free'
+    name: 'Standard'
+    tier: 'Standard'
+  }
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${userAssignedIdentityId}': {}
+    }
   }
   properties: {
     provider: parrepositoryProvider

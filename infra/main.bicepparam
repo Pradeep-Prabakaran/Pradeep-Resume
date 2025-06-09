@@ -34,3 +34,6 @@ param parcosmosContainername = 'visitorscounter'
 
 @description('Custom domain name for the Front Door')
 param parcustomDomainName = 'www.pradeepprabakaran.me'
+
+@description('Object ID of the user who needs admin access')
+param parobjectId = '72f0293e-1383-4fbb-b65c-7c0b04f677ec'

@@ -15,7 +15,7 @@ param parcosmosDbAccountName string = '${parprojectName}-${parenvironment}-cosmo
 param parcosmosContainername string
 
 // Create Cosmos DB Account
-resource cosmosDbAccount 'Microsoft.DocumentDB/databaseAccounts@2023-04-15' = {
+resource rescosmosDbAccount 'Microsoft.DocumentDB/databaseAccounts@2023-04-15' = {
   name: parcosmosDbAccountName
   location: parlocation
   kind: 'GlobalDocumentDB'
@@ -42,8 +42,8 @@ resource cosmosDbAccount 'Microsoft.DocumentDB/databaseAccounts@2023-04-15' = {
 }
 
 // Create Cosmos DB Database
-resource cosmosDatabase 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2023-04-15' = {
-  parent: cosmosDbAccount
+resource rescosmosDatabase 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2023-04-15' = {
+  parent: rescosmosDbAccount
   name: '${parprojectName}-db'
   properties: {
     resource: {
@@ -53,8 +53,8 @@ resource cosmosDatabase 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2023
 }
 
 // Create Cosmos DB Container
-resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
-  parent: cosmosDatabase
+resource rescosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2023-04-15' = {
+  parent: rescosmosDatabase
   name: parcosmosContainername
   properties: {
     resource: {
@@ -68,10 +68,10 @@ resource cosmosContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/con
 }
 
 //Outputs
-output cosmosDbEndpoint string = cosmosDbAccount.properties.documentEndpoint
-output cosmosDbAccountName string = cosmosDbAccount.name
-output cosmosDatabaseName string = cosmosDatabase.name
-output cosmosContainerName string = cosmosContainer.name
-output cosmosDbId string = cosmosDbAccount.id
-output cosmosDatabaseId string = cosmosDatabase.id
-output cosmosContainerId string = cosmosContainer.id
+output cosmosDbEndpoint string = rescosmosDbAccount.properties.documentEndpoint
+output cosmosDbAccountName string = rescosmosDbAccount.name
+output cosmosDatabaseName string = rescosmosDatabase.name
+output cosmosContainerName string = rescosmosContainer.name
+output cosmosDbId string = rescosmosDbAccount.id
+output cosmosDatabaseId string = rescosmosDatabase.id
+output cosmosContainerId string = rescosmosContainer.id
